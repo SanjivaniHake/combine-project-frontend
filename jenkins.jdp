@@ -19,7 +19,7 @@ pipeline {
         stage ('deploy') {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                aws s3 cp --recursive dist/angular-frontend/ s3://cbz-frontend-project-sanju-23-01/
+                sh 'aws s3 cp --recursive dist/angular-frontend/ s3://cbz-frontend-project-sanju-23-01/'
         }
 
             }
